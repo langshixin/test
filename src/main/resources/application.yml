@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: demo-app
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useSSL=true
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 10
+      auto-commit: true
+      idle-timeout: 10000
+      pool-name: DatebookHikariCP
+      max-lifetime: 80000
+      connection-timeout: 30000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
+      hibernate: DEBUG
+      apache:
+        commons:
+          dbcp2: DEBUG
+
+server:
+  port: 8088
+  servlet:
+    context-path: /test
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:mapper/*.xml
+
+mybatis-plus:
+  global-config:
+#    worker-id: ${random.int(1,31)}
+#    datacenter-id: ${random.int(1,31)}
+    worker-id: 7
+    datacenter-id: 3
+    banner: false
+  mapper-locations: classpath*:mapper/*.xml

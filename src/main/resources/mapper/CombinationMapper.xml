@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CombinationMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Combination">
+        <!-- 公共字段 数据状态 0 非正常 1 正常 默认 1 -->
+        <result column="status" property="status"/>
+        <result column="id" property="id"/>
+        <result column="description" property="description"/>
+        <result column="title" property="title"/>
+        <result column="show_home_page" property="showHomePage"/>
+        <result column="activity_start_time" property="activityStartTime"/>
+        <result column="activity_end_time" property="activityEndTime"/>
+        <result column="rule" property="rule"/>
+        <result column="minGan" property="minGan"/>
+        <result column="keyWord" property="keyWord"/>
+        <result column="redWord" property="redWord"/>
+
+    </resultMap>
+
+    <update id="updateById">
+        update t_combination set minGan = #{haveMg} ,keyWord = #{haveWj} ,redWord = #{haveRed}
+        where id = #{id}
+    </update>
+
+    <select id="selectList" resultType="com.example.demo.entity.Combination">
+        select * from t_combination t
+    </select>
+
+
+</mapper>

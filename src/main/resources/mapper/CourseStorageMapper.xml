@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CourseStorageMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.CourseStorage">
+        <result column="id" property="id"/>
+        <result column="overview" property="overview"/>
+        <result column="title" property="title"/>
+        <result column="create_time" property="createTime"/>
+        <result column="redWord" property="redWord"/>
+        <result column="minGan" property="minGan"/>
+        <result column="keyWord" property="keyWord"/>
+
+    </resultMap>
+    <update id="updateById">
+        update t_course_storage set minGan = #{haveMg} ,keyWord = #{haveWj},redWord = #{haveRed}
+        where id = #{id}
+    </update>
+    <select id="selectList" resultType="com.example.demo.entity.CourseStorage">
+        select * from t_course_storage t
+    </select>
+
+</mapper>
